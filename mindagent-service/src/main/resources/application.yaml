@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: mindagent
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:mindagent}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+
+      mode: ${DB_INIT_MODE:always}
+      continue-on-error: false
+  mail:
+    host: ${MAIL_HOST:smtp.qq.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  ai:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY:sk-placeholder}
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+    zhipuai:
+      api-key: ${ZHIPUAI_API_KEY:placeholder}
+      base-url: https://open.bigmodel.cn/api/paas
+      chat:
+        options:
+          model: glm-4.6
+
+mybatis:
+  type-aliases-package: com.mind.model.entity
+  mapper-locations: classpath:mapper/*.xml
+  type-handlers-package: com.mind.typehandler
+
+embedding:
+  ollama:
+    base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+
+document:
+  storage:
+    base-path: ${DOCUMENT_STORAGE_PATH:./data/documents}
