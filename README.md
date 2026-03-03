@@ -54,8 +54,6 @@ MindAgent
 └─ README.md
 ```
 
-> For GitHub you can name the repository `mindagent` – the folder name on your machine does not affect the code.
-
 ---
 
 ### Getting Started
