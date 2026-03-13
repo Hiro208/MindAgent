@@ -18,11 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * JChatMindV2 测试类
+ * MindAgentV2 测试类
  * 测试工具调用功能（ReAct 模型）
  */
 @SpringBootTest
-public class JChatMindV2Test {
+public class MindAgentV2Test {
 
     @Autowired
     @Qualifier("deepseek-chat")
@@ -46,7 +46,7 @@ public class JChatMindV2Test {
                 .getToolCallbacks();
 
         // 创建 V2 实例
-        JChatMindV2 agent = new JChatMindV2(
+        MindAgentV2 agent = new MindAgentV2(
                 "test-agent-v2",
                 "测试 Agent V2",
                 "你是一个智能助手，可以帮助用户查询天气、日期和城市信息。",
@@ -78,7 +78,7 @@ public class JChatMindV2Test {
                 .getToolCallbacks();
 
         // 创建 V2 实例
-        JChatMindV2 agent = new JChatMindV2(
+        MindAgentV2 agent = new MindAgentV2(
                 "test-agent-v2",
                 "测试 Agent V2",
                 "你是一个智能助手，可以帮助用户查询天气、日期和城市信息。",
@@ -104,7 +104,7 @@ public class JChatMindV2Test {
     @Test
     public void testConversationWithoutToolCalling() {
         // 创建 V2 实例（不提供工具）
-        JChatMindV2 agent = new JChatMindV2(
+        MindAgentV2 agent = new MindAgentV2(
                 "test-agent-v2",
                 "测试 Agent V2",
                 "你是一个友好的助手。",
@@ -135,7 +135,7 @@ public class JChatMindV2Test {
                 .getToolCallbacks();
 
         // 创建 V2 实例
-        JChatMindV2 agent = new JChatMindV2(
+        MindAgentV2 agent = new MindAgentV2(
                 "test-agent-v2",
                 "测试 Agent V2",
                 "你是一个智能助手，可以帮助用户查询天气、日期和城市信息。",

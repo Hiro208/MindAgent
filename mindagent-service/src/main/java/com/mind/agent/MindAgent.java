@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Slf4j
-public class JChatMind {
+public class MindAgent {
     // 智能体 ID
     private String agentId;
 
@@ -84,10 +84,10 @@ public class JChatMind {
     // AI 返回的，已经持久化，但是需要 sse 发给前端的消息
     private final List<ChatMessageDTO> pendingChatMessages = new ArrayList<>();
 
-    public JChatMind() {
+    public MindAgent() {
     }
 
-    public JChatMind(String agentId,
+    public MindAgent(String agentId,
                      String name,
                      String description,
                      String systemPrompt,
@@ -338,7 +338,7 @@ public class JChatMind {
 
     @Override
     public String toString() {
-        return "JChatMind {" +
+        return "MindAgent {" +
                 "name = " + name + ",\n" +
                 "description = " + description + ",\n" +
                 "agentId = " + agentId + ",\n" +

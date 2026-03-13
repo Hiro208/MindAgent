@@ -30,7 +30,7 @@ import java.util.stream.IntStream;
  * - 自动执行工具并处理结果
  */
 @Slf4j
-public class JChatMindV2 extends JChatMindV1 {
+public class MindAgentV2 extends MindAgentV1 {
     
     // 可用的工具列表
     protected List<ToolCallback> availableTools;
@@ -47,11 +47,11 @@ public class JChatMindV2 extends JChatMindV1 {
     // 最多循环次数
     private static final Integer MAX_STEPS = 20;
     
-    public JChatMindV2() {
+    public MindAgentV2() {
         super();
     }
     
-    public JChatMindV2(String name,
+    public MindAgentV2(String name,
                       String description,
                       String systemPrompt,
                       org.springframework.ai.chat.client.ChatClient chatClient,

@@ -1,7 +1,7 @@
 package com.kama.jchatmind.event.listener;
 
-import com.kama.jchatmind.agent.JChatMind;
-import com.kama.jchatmind.agent.JChatMindFactory;
+import com.kama.jchatmind.agent.MindAgent;
+import com.kama.jchatmind.agent.MindAgentFactory;
 import com.kama.jchatmind.event.ChatEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ChatEventListener {
 
-    private final JChatMindFactory jChatMindFactory;
+    private final MindAgentFactory mindAgentFactory;
 
     @Async
     @EventListener
     public void handle(ChatEvent event) {
         // 创建一个 Agent 实例处理聊天事件
-        JChatMind jChatMind = jChatMindFactory.create(event.getAgentId(), event.getSessionId());
-        jChatMind.run();
+        MindAgent mindAgent = mindAgentFactory.create(event.getAgentId(), event.getSessionId());
+        mindAgent.run();
     }
 }

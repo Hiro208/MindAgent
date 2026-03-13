@@ -27,7 +27,7 @@ import java.util.List;
  * - 简单的用户输入 -> AI 回复流程
  */
 @Slf4j
-public class JChatMindV1 {
+public class MindAgentV1 {
     // 名称
     protected String name;
     
@@ -51,9 +51,9 @@ public class JChatMindV1 {
     
     private static final Integer DEFAULT_MAX_MESSAGES = 20;
     
-    public JChatMindV1() {}
+    public MindAgentV1() {}
     
-    public JChatMindV1(String name,
+    public MindAgentV1(String name,
                       String description,
                       String systemPrompt,
                       ChatClient chatClient,
@@ -144,7 +144,7 @@ public class JChatMindV1 {
     
     @Override
     public String toString() {
-        return "JChatMindV1 {" +
+        return "MindAgentV1 {" +
                 "name = " + name + ",\n" +
                 "description = " + description + ",\n" +
                 "systemPrompt = " + systemPrompt + "}";

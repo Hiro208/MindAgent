@@ -31,9 +31,9 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
-public class JChatMindFactory {
+public class MindAgentFactory {
 
-    private static final Logger log = LoggerFactory.getLogger(JChatMindFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(MindAgentFactory.class);
     private final ChatClientRegistry chatClientRegistry;
     private final SseService sseService;
     private final AgentMapper agentMapper;
@@ -47,7 +47,7 @@ public class JChatMindFactory {
     // 运行时 Agent 配置
     private AgentDTO agentConfig;
 
-    public JChatMindFactory(
+    public MindAgentFactory(
             ChatClientRegistry chatClientRegistry,
             SseService sseService,
             AgentMapper agentMapper,
@@ -193,7 +193,7 @@ public class JChatMindFactory {
         }
     }
 
-    private JChatMind buildAgentRuntime(
+    private MindAgent buildAgentRuntime(
             Agent agent,
             List<Message> memory,
             List<KnowledgeBaseDTO> knowledgeBases,
@@ -204,7 +204,7 @@ public class JChatMindFactory {
         if (Objects.isNull(chatClient)) {
             throw new IllegalStateException("未找到对应的 ChatClient: " + agent.getModel());
         }
-        return new JChatMind(
+        return new MindAgent(
                 agent.getId(),
                 agent.getName(),
                 agent.getDescription(),
@@ -222,9 +222,9 @@ public class JChatMindFactory {
     }
 
     /**
-     * 创建一个 JChatMind 实例
+     * 创建一个 MindAgent 实例
      */
-    public JChatMind create(String agentId, String chatSessionId) {
+    public MindAgent create(String agentId, String chatSessionId) {
         Agent agent = loadAgent(agentId);
         AgentDTO agentConfig = toAgentConfig(agent);
         List<Message> memory = loadMemory(chatSessionId);

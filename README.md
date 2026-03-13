@@ -25,12 +25,12 @@ MindAgent focuses on **Agent Loop, tool calling, RAG knowledge retrieval, multi�
 
 ### Architecture
 
-Backend (`jchatmind/` → MindAgent service):
+Backend (`mindagent-service/` → MindAgent service):
 
 - **Spring Boot 3 + Spring AI**
 - Controllers (`/api/*`): agents, chat sessions, chat messages, knowledge bases, documents, tools, SSE.
 - Facade services: orchestration layer for persistence + agent runtime.
-- `JChatMindFactory` (agent factory) + `JChatMind` (Agent Loop implementation).
+- `MindAgentFactory` (agent factory) + `MindAgent` (Agent Loop implementation).
 - PostgreSQL + pgvector for both structured data and vector search.
 
 Frontend (`ui/` → React client):
@@ -47,7 +47,7 @@ Frontend (`ui/` → React client):
 ```text
 MindAgent
 ├─ mindagent-service/  # Spring Boot backend (Maven module 'mindagent')
-│  ├─ src/main/java/com/kama/jchatmind/...
+│  ├─ src/main/java/...  # Java source
 │  └─ src/main/resources/...
 ├─ mindagent-ui/       # React + Vite frontend
 │  └─ src/...
@@ -83,7 +83,7 @@ By default the backend runs at `http://localhost:8080`.
 
 Key configuration file:
 
-- `jchatmind/src/main/resources/application.yaml`  
+- `mindagent-service/src/main/resources/application.yaml`  
   - PostgreSQL connection (host / port / database / username / password)  
   - pgvector config  
   - Spring AI model keys (DeepSeek, ZhiPu, etc.)

@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * JChatMindV1 测试类
+ * MindAgentV1 测试类
  * 测试基础聊天功能
  */
 @SpringBootTest
-public class JChatMindV1Test {
+public class MindAgentV1Test {
 
     @Autowired
     @Qualifier("deepseek-chat")
@@ -23,7 +23,7 @@ public class JChatMindV1Test {
     @Test
     public void testBasicChat() {
         // 创建 V1 实例
-        JChatMindV1 agent = new JChatMindV1(
+        MindAgentV1 agent = new MindAgentV1(
                 "test-agent-v1",
                 "测试 Agent V1",
                 "你是一个友好的助手。",
@@ -48,7 +48,7 @@ public class JChatMindV1Test {
     @Test
     public void testMultiTurnConversation() {
         // 创建 V1 实例
-        JChatMindV1 agent = new JChatMindV1(
+        MindAgentV1 agent = new MindAgentV1(
                 "test-agent-v1",
                 "测试 Agent V1",
                 "",
@@ -76,7 +76,7 @@ public class JChatMindV1Test {
     @Test
     public void testResetConversation() {
         // 创建 V1 实例
-        JChatMindV1 agent = new JChatMindV1(
+        MindAgentV1 agent = new MindAgentV1(
                 "test-agent-v1",
                 "测试 Agent V1",
                 "你是一个助手。",
