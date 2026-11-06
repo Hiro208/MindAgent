@@ -70,6 +70,23 @@ npm run dev
 
 Open the URL printed in the terminal and create an agent to start chatting. To use retrieval, create a knowledge base, upload Markdown documents, and associate it with the agent.
 
+### First-run checklist
+
+1. Wait for PostgreSQL and Ollama to start, then pull `bge-m3` before uploading documents.
+2. Set the model API keys in the same terminal used to start the backend.
+3. Check backend availability with `curl http://localhost:8080/health`. This endpoint checks service availability; it does not verify model credentials or retrieval results.
+4. Open the frontend, create an agent, and send a short message to verify the model connection.
+5. Create a knowledge base, upload a Markdown file, associate it with the agent, and ask a question about its contents to check retrieval.
+
+### Troubleshooting
+
+- **Model requests fail:** Check the selected model and its API key in the backend environment. A successful health check alone does not confirm model connectivity.
+- **Document embeddings fail:** Confirm that Ollama is reachable through `OLLAMA_BASE_URL` and that `bge-m3` has been pulled.
+- **Database initialization fails:** Confirm PostgreSQL availability and the account's extension and table creation permissions. For an existing database, compare its schema with `schema.sql`.
+- **The frontend cannot reach the backend:** Set `VITE_API_BASE_URL` in `mindagent-ui/.env` and restart the frontend development server. For a non-local frontend origin, review the backend CORS configuration.
+- **A conversation is already processing:** Wait for its active task to finish before sending another message in the same session.
+- **Live updates stop after a disconnect:** Reopen the conversation to load saved messages. SSE events are not replayed, and responses are delivered as complete messages rather than individual tokens.
+
 ### Environment variables
 
 | Variable | Default or purpose |
@@ -98,3 +115,9 @@ Some demonstrations in `src/test` require model endpoints and a database. Config
 ## Current scope
 
 The application supports local demonstrations and single-instance deployments. Authentication, user data isolation, coordination across instances, and task recovery are not implemented. Email and file-writing tools perform real operations; review their configuration and scope before enabling them.
+
+## Maintenance notes
+
+### 2026-11-06
+
+Expanded the setup guide with a first-run verification checklist and troubleshooting instructions for model credentials, embeddings, database initialization, frontend connectivity, and conversation updates.
