@@ -115,9 +115,3 @@ Some demonstrations in `src/test` require model endpoints and a database. Config
 ## Current scope
 
 The application supports local demonstrations and single-instance deployments. Authentication, user data isolation, coordination across instances, and task recovery are not implemented. Email and file-writing tools perform real operations; review their configuration and scope before enabling them.
-
-## Maintenance notes
-
-### 2026-11-06
-
-Expanded the setup guide with a first-run verification checklist and troubleshooting instructions for model credentials, embeddings, database initialization, frontend connectivity, and conversation updates.
